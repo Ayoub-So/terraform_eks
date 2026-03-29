@@ -18,7 +18,7 @@ resource "aws_eks_node_group" "node_group" {
     var.PRI_SUB4_ID
   ]
 
-  # Configuration block
+  # Configuration blockNodeGroup
   scaling_config {
     # Required number of worker nodes
     desired_size = 2

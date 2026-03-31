@@ -1,5 +1,6 @@
 variable "REGION" {}
 variable "PROJECT_NAME" {}
+variable "EKS_CLUSTER_NAME" {}
 variable "VPC_CIDR" {}
 variable "PUB_SUB1_CIDR" {}
 variable "PUB_SUB2_CIDR" {}

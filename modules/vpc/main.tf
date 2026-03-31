@@ -3,8 +3,6 @@ resource "aws_vpc" "vpc" {
   instance_tenancy = "default"
   enable_dns_hostnames = true
   enable_dns_support   = true
-  enable_classiclink   = false
-  enable_classiclink_dns_support = false
   assign_generated_ipv6_cidr_block = false
 
 
@@ -97,7 +95,7 @@ resource "aws_subnet" "pri_sub3" {
   
   tags = {
     Name                        = "pri-sub3"
-    "kubernetes.io/cluster/${var.PROJECT_NAME}" = "shared"
+    "kubernetes.io/cluster/${var.EKS_CLUSTER_NAME}" = "shared"
     "kubernetes.io/role/internal-elb" = 1
   }
 }
@@ -112,7 +110,7 @@ resource "aws_subnet" "pri_sub4" {
 
   tags = {
     Name                        = "pri-sub4"
-    "kubernetes.io/cluster/${var.PROJECT_NAME}" = "shared"
+    "kubernetes.io/cluster/${var.EKS_CLUSTER_NAME}" = "shared"
     "kubernetes.io/role/internal-elb" = 1
   }
 }

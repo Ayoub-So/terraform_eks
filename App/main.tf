@@ -3,6 +3,7 @@ module "VPC" {
   source           = "../modules/vpc"
   REGION           = var.REGION
   PROJECT_NAME     = var.PROJECT_NAME
+  EKS_CLUSTER_NAME = var.EKS_CLUSTER_NAME
   VPC_CIDR         = var.VPC_CIDR
   PUB_SUB1_CIDR    = var.PUB_SUB1_CIDR
   PUB_SUB2_CIDR    = var.PUB_SUB2_CIDR
@@ -30,12 +31,12 @@ module "IAM" {
 # create EKS Cluster
 module "EKS" {
   source               = "../modules/EKS"
-  PROJECT_NAME         = var.PROJECT_NAME
+  EKS_CLUSTER_NAME     = var.EKS_CLUSTER_NAME
   EKS_CLUSTER_ROLE_ARN = module.IAM.EKS_CLUSTER_ROLE_ARN
-  PUB_SUB1_ID        = module.VPC.PUB_SUB1_ID
-  PUB_SUB2_ID        = module.VPC.PUB_SUB2_ID
-  PRI_SUB3_ID        = module.VPC.PRI_SUB3_ID
-  PRI_SUB4_ID        = module.VPC.PRI_SUB4_ID
+  PUB_SUB1_ID          = module.VPC.PUB_SUB1_ID
+  PUB_SUB2_ID          = module.VPC.PUB_SUB2_ID
+  PRI_SUB3_ID          = module.VPC.PRI_SUB3_ID
+  PRI_SUB4_ID          = module.VPC.PRI_SUB4_ID
 }
 
 # create Node Group
